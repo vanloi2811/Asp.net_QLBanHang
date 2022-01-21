@@ -1,0 +1,67 @@
+﻿@model QLBanHang.Models.SanPham
+@using QLBanHang.Models
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Chi tiết sản phẩm</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Donvitinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Donvitinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dongia)
+        </dt>
+
+        <dd>
+            @String.Format("{0:0,### đồng}", Model.Dongia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiSP.TenLoaiSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiSP.TenLoaiSP)
+        </dd>
+
+        <dt>
+            <br />
+            @Html.DisplayNameFor(model => model.HinhSP)
+        </dt>
+
+        <dd>
+            @Html.Image("../../"+ Model.HinhSP,"","100","120")
+        </dd>
+
+        <dt></dt>
+
+        <dd>
+            <br />
+            <a class="btn btn-info" href="@Url.Action("AddToCart", "Giohang", new {MaSP = Model.MaSP })">
+                <span class="glyphicon glyphicon-shopping-cart"></span>Thêm vào giỏ hàng
+            </a>
+            <a class="btn btn-info" href="@Url.Action("Index","Home")">
+                Quay lại
+            </a>
+        </dd>
+
+    </dl>
+</div>
